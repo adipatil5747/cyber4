@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("https://th.bing.com/th/id/OIP.J-Wc06eszd6PyvJVgSXuEwHaE8?w=265&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") no-repeat center center/cover;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #f1f1f1;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      color: white;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    button {
+      width: 48%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px 1%;
+      background: #0d6efd;
+      color: white;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #084298;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 20px;
+        max-width: 90%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Welcome</h1>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter Username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter Password" required>
+
+      <div>
+        <button type="submit">Login</button>
+        <button type="reset">Clear</button>
+      </div>
+      <div class="message" id="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "SecureWave" && password === "#Cyber2024") {
+        window.location.href = "https://forms.gle/RuHXVqqDV2TUvhGZ6";
+      } else if (username === "SecureWave" && password !== "#Cyber2024") {
+        message.style.color = "red";
+        message.textContent = "✅ Username is correct but password is wrong.";
+      } else if (username !== "SecureWave" && password === "#Cyber2024") {
+        message.style.color = "red";
+        message.textContent = "✅ Password is correct but username is wrong.";
+      } else {
+        message.style.color = "red";
+        message.textContent = "❌ Both username and password are incorrect.";
+      }
+    });
+  </script>
+</body>
+</html>
